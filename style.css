@@ -1,0 +1,255 @@
+* {
+    margin: 0; /* Quita márgenes por defecto del navegador */
+    padding: 0; /* Quita rellenos por defecto */
+    box-sizing: border-box; 
+    /* Hace que el tamaño incluya padding y borde */
+}
+
+body {
+    background-color: #da1212; /* Fondo oscuro */
+    color: white; /* Texto blanco */
+    font-family: Arial, sans-serif; /* Fuente */
+}
+
+header {
+    height: 100vh;
+    background-color: rgb(217, 18, 18);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+header h1 {
+    letter-spacing: 1px; 
+}
+
+.logo {
+    width: 300px;
+    max-width: 100%;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+
+
+.btn {
+    background: #139502; /* Color del botón */
+    padding: 10px 20px; /* Espacio interno */
+    text-decoration: none; /* Quita subrayado */
+    color: white;
+    border-radius: 5px; /* Bordes redondeados */
+    margin-top: 15px;
+    display: inline-block; /* Importante: permite que el botón se transforme correctamente */
+
+    /* ASIGNACIÓN DE LA ANIMACIÓN */
+    animation: latido 2s infinite;
+}
+
+.btn:hover {
+    background: #107c02; /* Un verde un poco más oscuro */
+    transition: 0.3s;    /* Para que el cambio de color sea suave */
+}
+
+section {
+    padding: 120px 20px; /* Espacio interno */
+    text-align: center;
+}
+
+.menu {
+    display: flex; /* Activa flexbox */
+    justify-content: center; /* Centra tarjetas */
+    gap: 10px; /* Espacio entre tarjetas */
+    flex-wrap: wrap; 
+    /* Permite que bajen si no caben */
+}
+
+.card {
+    background: #c60b0b; /* Fondo tarjeta */
+    padding: 10px;
+    border-radius: 10px;
+    width: 250px; /* Ancho fijo */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover{
+    transform:scale(1.03);
+    /* Levanta la tarjeta 10 píxeles hacia arriba */
+    transform: translateY(-10px); 
+    
+    /* Le da una sombra para que parezca que está "flotando" */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    
+    /* Cambia un poco el cursor para que parezca cliqueable */
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%; 
+    height: 200;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+h1,h2,h3, .destacados {
+    font-family: 'bebas neue', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.destacados {
+    color: #FFD700; /* Un dorado vibrante como los detalles del logo */
+    font-size: 2.8rem;
+    margin-bottom: 5px; /* Lo que ya habíamos ajustado */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Una sombra suave para que resalte */
+}
+
+.card h3 {
+    color: white;
+    font-family: 'bebas neue', sans-serif;
+    margin-top: 10px; /* Espacio arriba del título */
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.price {
+    color: #ffd700; /* Color dorado para el precio, resalta más */
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: arial, sans-serif;
+}
+
+footer {
+    background: rgb(216, 16, 16);
+    padding: 20px;
+    text-align: center;
+}
+
+@keyframes latido {
+    0% {
+        transform: scale(1); /* Tamaño original */
+    }
+    50% {
+        transform: scale(1.05); /* Crece un 5% */
+    }
+    100% {
+        transform: scale(1); /* Vuelve al tamaño original */
+    } 
+}
+
+.horarios {
+    background-color: #b10f0f; /* Un rojo un poco más oscuro para diferenciar la sección */
+    padding: 40px 20px;
+}
+
+.tabla-contenedor {
+    display: flex;
+    justify-content: center; /* Centra la tabla en la página */
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    max-width: 500px; /* Evita que la tabla se estire demasiado */
+    border-collapse: collapse; /* Elimina el espacio doble entre bordes */
+    font-family: 'Arial', sans-serif;
+}
+
+th {
+    font-family: 'Bebas Neue', sans-serif; /* Usamos tu fuente de títulos */
+    font-size: 1.5rem;
+    color: #FFD700; /* Dorado del logo */
+    border-bottom: 2px solid #FFD700;
+    padding: 10px;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea sutil entre días */
+}
+
+/* Efecto cebra: le da un color diferente a las filas pares para que se lea mejor */
+tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Cuando la pantalla sea de 600px o menos (Celulares) */
+@media (max-width: 600px) {
+    
+    header {
+        height: 70vh; /* Bajamos un poco la altura para que no ocupe toda la pantalla del móvil */
+    }
+
+    .logo {
+        width: 200px; /* Logo más pequeño para que quepa bien */
+    }
+
+    .destacados {
+        font-size: 2rem; /* Título un poco más pequeño */
+    }
+
+    .menu {
+        flex-direction: column; /* Las tarjetas ahora se ponen una debajo de otra */
+        align-items: center;    /* Las centramos perfectamente */
+    }
+
+    .card {
+        width: 90%; /* La tarjeta ocupa casi todo el ancho del celular */
+        max-width: 320px;
+    }
+
+    table {
+        font-size: 0.9rem; /* Achicamos la letra de los horarios para que no se corte */
+    }
+}
+
+.ubicacion {
+    padding: 50px 20px;
+    background-color: #da1212; /* Fondo rojo igual que el resto */
+    text-align: center;
+}
+
+.mapa-contenedor {
+    margin-top: 20px;
+    border: 5px solid #FFD700; /* Marco dorado para que combine con el logo */
+    border-radius: 15px;
+    overflow: hidden; /* Esto hace que las esquinas del mapa también se redondeen */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Magia para que el mapa sea responsivo */
+.mapa-contenedor iframe {
+    width: 100%; /* Ocupa todo el ancho de su contenedor */
+    height: 400px; /* Altura fija */
+    display: block;
+}
+
+ body, .ubicacion{
+    background-image: url('logo.jpg'); 
+
+    /*  Para que la imagen no se repita como un mosaico */
+    background-repeat: no-repeat;
+
+    /* Para que la imagen cubra toda la pantalla sin deformarse */
+    background-size: cover;
+
+    /*  Para que la imagen se quede fija mientras haces scroll */
+    background-attachment: fixed;
+
+    /*  Para centrar la imagen */
+    background-position: center;
+
+    /* Mantenemod el estilo que uso */
+    color: white; 
+    font-family: Arial, sans-serif;
+}
