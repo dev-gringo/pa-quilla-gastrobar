@@ -336,27 +336,51 @@ tr:nth-child(even) {
 }
 
 /* Estilos para el botón flotante */
-.whatsapp-float {
+/* 1. Contenedor que agrupa la burbuja y el botón */
+.whatsapp-container {
     position: fixed;
-    width: 60px;
-    height: 60px;
     bottom: 40px;
     right: 40px;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 2. La burbuja de texto con la animación */
+.whatsapp-badge {
+    background-color: white;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    margin-bottom: 10px;
+    border: 1px solid #25d366;
+    animation: bounce 2s infinite; 
+}
+
+/* 3. El botón circular de WhatsApp */
+.whatsapp-float {
+    width: 60px;
+    height: 60px;
     background-color: #25d366;
-    color: #FFF;
     border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-    z-index: 1001; /* Para que esté por encima de todo, incluso del modal */
-    transition: all 0.3s ease;
+    transition: transform 0.3s;
 }
 
 .whatsapp-float:hover {
-    background-color: #128c7e;
     transform: scale(1.1);
 }
 
-.whatsapp-float img {
-    margin-top: 0px;
+/* 4. Definición de la animación de rebote */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-5px);}
+    60% {transform: translateY(-3px);}
 }
