@@ -98,5 +98,31 @@
     <p>© 2026 PA'QUILLA</p>
 </footer>
 
+<div id="miModal" class="modal">
+    <span class="cerrar">&times;</span>
+    <img class="modal-contenido" id="imgGrande">
+    <div id="caption"></div>
+</div>
+
+<script>
+    var modal = document.getElementById("miModal");
+    var modalImg = document.getElementById("imgGrande");
+    var captionText = document.getElementById("caption");
+
+    // Seleccionamos todas las imágenes de la galería
+    document.querySelectorAll('.grid-item img').forEach(img => {
+        img.onclick = function() {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+    });
+
+    // Cerrar cuando se hace clic en la X
+    document.querySelector('.cerrar').onclick = function() {
+        modal.style.display = "none";
+    }
+</script>
+
 </body>
 </html>
