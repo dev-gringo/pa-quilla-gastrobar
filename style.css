@@ -321,3 +321,16 @@ tr:nth-child(even) {
     font-weight: bold;
     cursor: pointer;
 }
+
+/* Estado inicial: invisible y un poco más abajo */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease-out;
+}
+
+/* Estado final: visible y en su posición original */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}

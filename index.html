@@ -15,15 +15,16 @@
 <body>
 
 <header>
-    <img src="logo.jpg" alt="Logo Pa'Quilla Gastrobar" class="logo">
-    <h1>El mejor ambiente, con la mejor comida del pueblo 🍔🍻</h1> <a class="btn" href="https://wa.me/tu_numero" target="_blank">
+    <img src="logo.jpg" alt="Logo Pa'Quilla Gastrobar" class="logo reveal">
+    <h1 class="eslogan reveal">El mejor ambiente, con la mejor comida del pueblo 🍔🍻</h1> 
+    <a class="btn reveal" href="https://wa.me/3205446837" target="_blank">
         Reservar por WhatsApp 💬
     </a>
 </header>
 
 <section>
-    <h2 class="destacados">Nuestros Destacados</h2>
-    <div class="menu">
+    <h2 class="destacados reveal">Nuestros Destacados</h2>
+    <div class="menu reveal">
         <div class="card">
             <img src="https://images.unsplash.com/photo-1550547660-d9450f859349" alt="Hamburguesa">
             <h3>Hamburguesa Especial</h3>
@@ -41,8 +42,8 @@
 </section>
 
 <section class="galeria">
-    <h2 class="destacados">Nuestras Especialidades</h2>
-    <div class="grid-container">
+    <h2 class="destacados reveal">Nuestras Especialidades</h2>
+    <div class="grid-container reveal">
         <div class="grid-item"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=500&auto=format&fit=crop" alt="Hamburguesa Especial"></div>
         <div class="grid-item"><img src="https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Papas Bravas"></div>
         <div class="grid-item"><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=500&auto=format&fit=crop" alt="Cóctel de la Casa"></div>
@@ -52,7 +53,7 @@
 </section>
 
 
-<section class="horarios">
+<section class="horarios reveal">
     <h2>Horarios de Atención</h2>
     <div class="tabla-contenedor">
         <table>
@@ -80,7 +81,7 @@
     </div>
 </section>
 
-<section class="ubicacion">
+<section class="ubicacion reveal">
     <h2>Encuéntranos</h2>
     <div class="mapa-contenedor">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1976.0094979721887!2d-76.63646437846974!3d7.893080999448911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e500d60d215c9db%3A0x73ba1425eace70da!2sCl.%20107A%20%23%20107-16%2C%20Apartad%C3%B3%2C%20Antioquia!5e0!3m2!1ses-419!2sco!4v1771124327190!5m2!1ses-419!2sco" 
@@ -124,7 +125,27 @@
         modal.style.display = "none";
             document.body.style.overflow = "auto"; // Libera el scroll al cerrar
     }
-</script>
 
-</body>
+    // Función para detectar el scroll
+function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+
+    for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150; // Cuántos píxeles deben verse para activar
+
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+        }
+    }
+}
+
+// Ejecutar la función cada vez que se haga scroll
+window.addEventListener("scroll", reveal);
+
+// Ejecutar una vez al cargar por si hay elementos ya visibles
+reveal();
+        </script>
+    </body>
 </html>
