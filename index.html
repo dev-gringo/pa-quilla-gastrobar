@@ -115,12 +115,14 @@
             modal.style.display = "block";
             modalImg.src = this.src;
             captionText.innerHTML = this.alt;
+            document.body.style.overflow = "hidden"; // Bloquea el scroll al abrir
         }
     });
 
     // Cerrar cuando se hace clic en la X
     document.querySelector('.cerrar').onclick = function() {
         modal.style.display = "none";
+            document.body.style.overflow = "auto"; // Libera el scroll al cerrar
     }
 </script>
 
