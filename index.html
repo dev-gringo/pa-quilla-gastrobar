@@ -49,7 +49,7 @@
         <div class="grid-item"><img src="https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Papas Bravas"></div>
         <div class="grid-item"><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=500&auto=format&fit=crop" alt="Cóctel de la Casa"></div>
         <div class="grid-item"><img src="https://images.pexels.com/photos/1267682/pexels-photo-1267682.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Cerveza Artesanal"></div>
-        <div class="grid-item"><img src="https://images.pexels.com/photos/17282046/pexels-photo-17282046.jpeg" alt="alitas de pollo">
+        <div class="grid-item"><img src="https://images.pexels.com/photos/17282046/pexels-photo-17282046.jpeg" alt="alitas de pollo"></div>
     </div>
 </section>
 
@@ -105,9 +105,9 @@
 
         <div class="footer-section">
             <h4>Horarios</h4>
-            <p>Martes - Jueves: 4:00 PM - 10:00 PM</p>
-            <p>Viernes - Domingo: 4:00 PM - 12:00 AM</p>
-            <p>Lunes: Cerrado</p>
+            <p>lunes - Jueves: 4:00 PM - 11:00 PM</p>
+            <p>Viernes - sabado: 4:00 PM - 12:00 AM</p>
+            <p>Domingo : Cerrado</p>
         </div>
 
         <div class="footer-section">
@@ -167,25 +167,22 @@
     }
 
     // Función para detectar el scroll
-function reveal() {
-    var reveals = document.querySelectorAll(".reveal");
+const observerOptions = {
+        threshold: 0.15 
+    };
 
-    for (var i = 0; i < reveals.length; i++) {
-        var windowHeight = window.innerHeight;
-        var elementTop = reveals[i].getBoundingClientRect().top;
-        var elementVisible = 150; // Cuántos píxeles deben verse para activar
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, observerOptions);
 
-        if (elementTop < windowHeight - elementVisible) {
-            reveals[i].classList.add("active");
-        }
-    }
-}
-
-// Ejecutar la función cada vez que se haga scroll
-window.addEventListener("scroll", reveal);
-
-// Ejecutar una vez al cargar por si hay elementos ya visibles
-reveal();
+    document.querySelectorAll('.reveal').forEach(el => {
+        observer.observe(el);
+    });
         </script>
     </body>
 </html>

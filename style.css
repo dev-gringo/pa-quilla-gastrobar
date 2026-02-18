@@ -327,12 +327,13 @@ tr:nth-child(even) {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.5s ease-out;
+    will-change: transform, opacity; /* Esto elimina el lag al forzar el uso de la tarjeta de video */
 }
 
 /* Estado final: visible y en su posición original */
 .reveal.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0); 
 }
 
 /* Estilos para el botón flotante */
