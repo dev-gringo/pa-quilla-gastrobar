@@ -234,24 +234,22 @@ tr:nth-child(even) {
     display: block;
 }
 
- body, .ubicacion{
+    /*  Aplico el fondo SOLO al body para que sea global y no se repita */
+body {
     background-image: url('logo.jpg'); 
-
-    /*  Para que la imagen no se repita como un mosaico */
     background-repeat: no-repeat;
-
-    /* Para que la imagen cubra toda la pantalla sin deformarse */
     background-size: cover;
-
-    /*  Para que la imagen se quede fija mientras haces scroll */
-    background-attachment: fixed;
-
-    /*  Para centrar la imagen */
+    background-attachment: fixed; 
     background-position: center;
-
-    /* Mantenemod el estilo que uso */
     color: white; 
     font-family: Arial, sans-serif;
+    min-height: 100vh; /* Asegura que el fondo cubra todo */
+}
+
+.ubicacion {
+    padding: 50px 20px;
+    background-color: transparent; /* Importante: quitamos el color sólido */
+    text-align: center;
 }
 
 /* Estilos para la nueva Galería Grid */
